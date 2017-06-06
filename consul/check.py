@@ -256,6 +256,8 @@ class ConsulCheck(AgentCheck):
                     tags.append("service:{0}".format(check["ServiceName"]))
                 if check["ServiceID"]:
                     tags.append("consul_service_id:{0}".format(check["ServiceID"]))
+                if check["Node"]:
+                    tags.append("consul_node:{0}".format(check["Node"]))
 
                 self.service_check(self.HEALTH_CHECK, status, tags=main_tags+tags)
 
